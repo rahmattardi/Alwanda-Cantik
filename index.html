@@ -22,6 +22,20 @@
             align-items: center;
             min-height: 100vh;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Latar belakang transparan di atas foto */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url('foto-lebaran.png'); /* <--- GANTI INI DENGAN NAMA FOTO KAMU DI GITHUB */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15; /* Atur transparansi foto latar belakang */
+            z-index: -2;
         }
 
         .container {
@@ -29,6 +43,7 @@
             max-width: 400px;
             text-align: center;
             padding: 20px;
+            z-index: 1;
         }
 
         /* Amplop Animasi */
@@ -53,22 +68,23 @@
             margin-bottom: 10px;
         }
 
-        .music-note {
-            font-size: 2rem;
-            margin: 10px;
+        .icon-special {
+            font-size: 3rem;
+            margin: 15px;
             display: inline-block;
-            animation: bounce 2s infinite;
+            animation: pulse 1.5s infinite;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         /* Bagian Pesan */
         #message-content {
             display: none;
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             padding: 25px;
             border-radius: 20px;
             text-align: left;
@@ -79,6 +95,15 @@
             max-height: 70vh;
             overflow-y: auto;
             border-left: 5px solid var(--accent-color);
+            position: relative;
+        }
+
+        /* Foto di dalam pesan */
+        .message-photo {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .highlight {
@@ -90,7 +115,7 @@
             text-align: center;
             margin-top: 20px;
             font-family: 'Dancing Script', cursive;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--accent-color);
         }
 
@@ -105,31 +130,44 @@
             margin-top: 15px;
             font-family: 'Quicksand', sans-serif;
             box-shadow: 0 4px 15px rgba(255, 128, 171, 0.4);
+            font-size: 1.1rem;
         }
 
-        .floating-hearts {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
+        button:hover {
+            background-color: #ff4081;
+        }
+
+        /* Teks judul lagu */
+        .now-playing {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Pengatur suara manual (opsional, disembunyikan) */
+        audio {
+            display: none;
         }
     </style>
 </head>
 <body>
 
+    <audio id="myAudio" loop>
+        <source src="lagu.mp3" type="audio/mpeg"> Browser kamu tidak mendukung pemutar musik.
+    </audio>
+
     <div class="container">
         <div id="envelope" class="envelope-wrapper">
-            <div class="music-note">💌</div>
+            <div class="icon-special">💝</div>
             <h1>Halo Sayang..</h1>
-            <p>Ada surat spesial buat <b>Alwanda</b> di hari lebaran ini. Klik untuk buka ya!</p>
-            <button onclick="openLetter()">Buka Surat ✨</button>
+            <p>Ada surat spesial & lagu favorit kita buat <b>Alwanda</b> di hari lebaran ini.</p>
+            <button onclick="openLetterAndPlayMusic()">Buka Surat ✨</button>
+            <div class="now-playing">🎵 Menyiapkan: Nuca - Masa ini, Nanti...</div>
         </div>
 
         <div id="message-content">
-            <p>Minal aidzin wal faidzin, <span class="highlight">selamat lebaran cintakuu✨❤️</span></p>
+            <img src="foto-lebaran.png" alt="Foto Lebaran Kita" class="message-photo"> <p>Minal aidzin wal faidzin, <span class="highlight">selamat lebaran cintakuu✨❤️</span></p>
             
             <p>Mohon maaf maaf lahir dan batin buat kamu dari aku, maaf ya kalo aku selama sama kamu, atau sebelum pacaran sama kamu, banyak kata yg terucap atau pun terketik, tindakan, cara bicara, perlakuan, atau hal lain yg nyinggung kamu secara ga sadar dari aku.</p>
             
@@ -156,11 +194,16 @@
     </div>
 
     <script>
-        function openLetter() {
+        function openLetterAndPlayMusic() {
+            // Sembunyikan amplop, tampilkan pesan
             document.getElementById('envelope').style.display = 'none';
             const msg = document.getElementById('message-content');
             msg.style.display = 'block';
             
+            // Putar musik (karena ini respon dari klik user, autoplay akan bekerja)
+            const audio = document.getElementById('myAudio');
+            audio.play();
+
             // Efek Hati Berjatuhan
             setInterval(createHeart, 300);
         }
@@ -174,6 +217,7 @@
             heart.style.top = '-20px';
             heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
             heart.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+            heart.style.color = '#ff80ab';
             document.body.appendChild(heart);
 
             setTimeout(() => {
