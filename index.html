@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Lebaran Alwanda ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #fce4ec;
+            --accent-color: #ff80ab;
+            --text-dark: #4a4a4a;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-color);
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Amplop Animasi */
+        .envelope-wrapper {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: 2px dashed var(--accent-color);
+        }
+
+        .envelope-wrapper:active {
+            transform: scale(0.95);
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .music-note {
+            font-size: 2rem;
+            margin: 10px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Bagian Pesan */
+        #message-content {
+            display: none;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: left;
+            line-height: 1.6;
+            color: var(--text-dark);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            max-height: 70vh;
+            overflow-y: auto;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .footer-love {
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            font-family: 'Quicksand', sans-serif;
+            box-shadow: 0 4px 15px rgba(255, 128, 171, 0.4);
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="envelope" class="envelope-wrapper">
+            <div class="music-note">💌</div>
+            <h1>Halo Sayang..</h1>
+            <p>Ada surat spesial buat <b>Alwanda</b> di hari lebaran ini. Klik untuk buka ya!</p>
+            <button onclick="openLetter()">Buka Surat ✨</button>
+        </div>
+
+        <div id="message-content">
+            <p>Minal aidzin wal faidzin, <span class="highlight">selamat lebaran cintakuu✨❤️</span></p>
+            
+            <p>Mohon maaf maaf lahir dan batin buat kamu dari aku, maaf ya kalo aku selama sama kamu, atau sebelum pacaran sama kamu, banyak kata yg terucap atau pun terketik, tindakan, cara bicara, perlakuan, atau hal lain yg nyinggung kamu secara ga sadar dari aku.</p>
+            
+            <p>Semoga harimu semakin baik dan semogaa selalu dikelilingi hal² baik kedepannya ayy✨🫶 Aku selalu doain yg terbaik buat kamu dan semoga di lebaran tahun depan dan tahun² yg akan datang, kamu tetap menjadi pasanganku dan kita tetap bersama ya sayangg🥺🫶🫶</p>
+            
+            <p>Selama kita pacaran, aku sadar dari kita pasti ada salah, terutama dari aku ayy. Semoga setiap air mata yg pernah jatuh dari matamu karena perlakuan aku menjadi keikhlasan dan diganti hal baik di masa yg akan datangg✨🥺🫶🫶</p>
+            
+            <p>Semoga kata maafku kali ini masih ada tempat di hatimu ayy, dan semoga jiwa, raga dan hatiku bisa menjadi tempat ternyaman untuk pulang❤️❤️</p>
+            
+            <p>Aku seneng bangett lebaran kali ini, aku punya dan bener² ditemenin cewe cantikk🥰🫰, namanya <span class="highlight">Alwanda</span>.</p>
+            
+            <p>Makasih yaa sayangg, beruntungnya aku punya kamu ayy, kamu perempuan yg sangat rajin dan giat, aku terharu dengan semua keringat cape kamu, semoga lelahmu dibalas hal baik di kesempatan yg tidak kamu duga ayy❤️✨</p>
+            
+            <p>Makasih juga sayangg, akhirnya karena kamu, aku pernah merasakan bagaimana rasanya dikirim pap dari sholat id dan pap lebaran hari pertama, mana ada bonus video lagii🥺🥰🥰🫶🫶🫶</p>
+            
+            <p>Lovee you sayangkuu🫶❤️❤️ Semoga kamu dan aku sehat selalu, dan semoga kita selalu bertemu di setiap lebaran berikutnya ✨</p>
+            
+            <p>Maaf ya baru sempet ngetik atau nulis ini buat kamu ayy, semoga masih diterima.</p>
+            
+            <p>Last, terima kasih buat hari ini ya sayangg🫶 Aku bangga punya cewe bernama <b>"Alwanda Sagita Putri"</b>. Semoga aku bisa usahakan kamu dan bisa bawa kamu sampai pelaminan✨❤️❤️</p>
+            
+            <div class="footer-love">With Love, Your Man ❤️</div>
+        </div>
+    </div>
+
+    <script>
+        function openLetter() {
+            document.getElementById('envelope').style.display = 'none';
+            const msg = document.getElementById('message-content');
+            msg.style.display = 'block';
+            
+            // Efek Hati Berjatuhan
+            setInterval(createHeart, 300);
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '-20px';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // Tambahkan CSS dinamis untuk animasi hati
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                to {
+                    transform: translateY(105vh) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
